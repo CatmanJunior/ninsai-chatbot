@@ -1,0 +1,15 @@
+version: '3.9'  # Adjust based on your Docker Compose version
+
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:4173" # Map container port 4173 to host port 3000
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=production
